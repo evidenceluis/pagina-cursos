@@ -3,22 +3,25 @@
 @section('title_page', 'Registro')
 
 @section('form')
-    <section class="flex">
-        <form action="" class="max-w-[500px] w-[90%] m-auto">
-            <h1 class="text-xl text-center font-semibold">Disfruta ahora de esta experiencia gratuita de los
+    <section class="max-w-[1400px] w-[90%] m-auto flex flex-col md:flex-row items-center justify-center gap-3">
+        <form action="{{ route('register') }}" method="POST"
+            class="relative max-w-[500px] w-[90%] -mt-[50px] bg-white p-10 mb-2 rounded-lg order-1 shadow-2xl md:-mt-0 md:bg-none md:shadow-none md:mb-0 md:order-0">
+            @csrf
+            <h1 class="text-xl text-center font-semibold pb-2">Disfruta ahora de esta experiencia gratuita con los
                 cursos que
                 siempre quisiste
                 tomar
             </h1>
-            <label class="relative flex flex-col py-8" for="">
-                <input class="peer/nombre border-0 outline outline-1 outline-gray-700 rounded-lg" type="text"
-                    placeholder=" " />
-                <span
-                    class="absolute top-[15px] translate-y-[-50%] left-5 text-gray-700 transition-all duration-500 peer-placeholder-shown/nombre:top-[50%] peer-placeholder-shown/nombre:text-gray-400">Nombre
-                    de
-                    usuario</span>
-            </label>
+            <x-label-form :text="'Nombre de usuario'" :type="'text'" :name="'name'"></x-label-form>
+            <x-label-form :text="'Correo electrónico'" :type="'email'" :name="'email'"></x-label-form>
+            <x-label-form :text="'Contraseña'" :type="'password'" :name="'password'"></x-label-form>
+            <x-label-form :text="'Confirmar contraseña'" :type="'password'" :name="'password_confirmation'"></x-label-form>
+
+            <button class="bg-gray-900 text-white rounded-lg px-4 py-2 mt-4" type="submit">Registrarse</button>
         </form>
-        <img width="500" src="{{ asset('svgs/sign.svg') }}" alt="">
+        <picture class="order-0 md:order-1">
+            <source media="(min-width: 768px)" srcset="{{ asset('svgs/sign-mobile-1.svg') }}">
+            <img width="300" src="{{ asset('svgs/sign-mobile-1.svg') }}" alt="">
+        </picture>
     </section>
 @endsection
