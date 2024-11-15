@@ -23,10 +23,7 @@
             tomar
         </h1>
         <x-label-form :text="'Correo electrónico'" :type="'email'" :name="'email'"></x-label-form>
-        <div>
-            <x-label-form :text="'Contraseña'" :type="'password'" :name="'password'"></x-label-form>
-            <a class="float-right font-semibold text-blue-600 underline -mt-2" href="{{ url('/register') }}">¿Aún no tienes una cuenta?</a>
-        </div>
+        <x-label-form :text="'Contraseña'" :type="'password'" :name="'password'"></x-label-form>
 
         <button class="bg-gray-900 text-white rounded-lg px-4 py-2 mt-4" type="submit">Registrarse</button>
     </form>
